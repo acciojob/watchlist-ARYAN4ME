@@ -18,7 +18,7 @@ public class MovieController {
     @PostMapping("/add-movie")
     public ResponseEntity<String> addMovie(@RequestBody Movie movie){
         movieService.addMovie(movie);
-        return new ResponseEntity<>("New Movi added successfully", HttpStatus.CREATED);
+        return new ResponseEntity<>("New Movie added successfully", HttpStatus.CREATED);
     }
     @PostMapping("/add-director")
     public ResponseEntity<String> addDirector(@RequestBody Director director){
@@ -26,9 +26,10 @@ public class MovieController {
         return new ResponseEntity<>("New Director added successfully", HttpStatus.CREATED);
     }
     @PutMapping("/add-movie-director-pair")
-    public ResponseEntity<String> addMovieDirectorPair(@RequestParam("movie")String movie,@RequestParam("director")String director){
+    public ResponseEntity<String> addMovieDirectorPair(@RequestParam("movie")String movie,
+                                                       @RequestParam("director")String director){
         movieService.addMovieDirectorPair(movie,director);
-        return new ResponseEntity<>("new movie direcotr pair added successfully",HttpStatus.CREATED);
+        return new ResponseEntity<>("new movie director pair added successfully",HttpStatus.CREATED);
 
     }
    @GetMapping("/get-movie-by-name/{name}")
@@ -52,9 +53,9 @@ public class MovieController {
         return new ResponseEntity<>(movies,HttpStatus.CREATED);
     }
     @DeleteMapping("/delete-director-by-name")
-    public ResponseEntity<String> deleteDirectorByName(@RequestParam String direcotr){
-        movieService.deleteDirectorByName(direcotr);
-        return  new ResponseEntity<>(direcotr + "Remove successfully",HttpStatus.CREATED);
+    public ResponseEntity<String> deleteDirectorByName(@RequestParam String director){
+        movieService.deleteDirectorByName(director);
+        return  new ResponseEntity<>(director + "Remove successfully",HttpStatus.CREATED);
     }
     @DeleteMapping("/delete-all-directors")
     public ResponseEntity<String> deleteAllDirectors(){
