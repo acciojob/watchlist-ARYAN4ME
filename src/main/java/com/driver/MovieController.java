@@ -17,6 +17,7 @@ public class MovieController {
 
     @PostMapping("/add-movie")
     public ResponseEntity<String> addMovie(@RequestBody Movie movie){
+        int x = 0;
         movieService.addMovie(movie);
         return new ResponseEntity<>("Movie added successfully", HttpStatus.CREATED);
     }
